@@ -13,7 +13,15 @@ return new class extends Migration
     {
         Schema::create('sleep_log', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->date('start_date');
+            $table->date('end_date');
+            $table->time('start_time');
+            $table->time('end_time');
+            $table->integer('sleep_quality')->nullable(); //Rating 1 - 10.
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
