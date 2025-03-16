@@ -4,27 +4,220 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\SleepAdvice;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class SleepLogSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
         $currentTimestamp = now();
  
         $sleepLog = [
             [
-                "advice_title" => "Example Title!!!!!!!",
-                "description" => "Example Description!!!!!!!!!!!!!",
-                "advice_type" => "Exercise",
+                "start_date" => "2025/03/15",
+                "end_date" => "2025/03/16",
+                "start_time" => "22:05",
+                "end_time" => "07:00",
+                "sleep_quality" => "7",
+                "user_id" => "1",
                 "created_at" => $currentTimestamp,
-                "updated_at" => $currentTimestamp
+                "updated_at" => $currentTimestamp,
+            ],
+            [
+                "start_date" => "2025/03/16",
+                "end_date" => "2025/03/17",
+                "start_time" => "23:15",
+                "end_time" => "06:30",
+                "sleep_quality" => 6,
+                "user_id" => 1,
+                "created_at" => $currentTimestamp,
+                "updated_at" => $currentTimestamp,
+            ],
+            [
+                "start_date" => "2025/03/17",
+                "end_date" => "2025/03/18",
+                "start_time" => "21:45",
+                "end_time" => "06:50",
+                "sleep_quality" => 8,
+                "user_id" => 1,
+                "created_at" => $currentTimestamp,
+                "updated_at" => $currentTimestamp,
+            ],
+            [
+                "start_date" => "2025/03/18",
+                "end_date" => "2025/03/19",
+                "start_time" => "00:30",
+                "end_time" => "08:00",
+                "sleep_quality" => 5,
+                "user_id" => 1,
+                "created_at" => $currentTimestamp,
+                "updated_at" => $currentTimestamp,
+            ],
+            [
+                "start_date" => "2025/03/19",
+                "end_date" => "2025/03/20",
+                "start_time" => "22:10",
+                "end_time" => "06:40",
+                "sleep_quality" => 7,
+                "user_id" => 1,
+                "created_at" => $currentTimestamp,
+                "updated_at" => $currentTimestamp,
+            ],
+            [
+                "start_date" => "2025/03/20",
+                "end_date" => "2025/03/21",
+                "start_time" => "23:50",
+                "end_time" => "05:30",
+                "sleep_quality" => 4,
+                "user_id" => 1,
+                "created_at" => $currentTimestamp,
+                "updated_at" => $currentTimestamp,
+            ],
+            [
+                "start_date" => "2025/03/21",
+                "end_date" => "2025/03/22",
+                "start_time" => "21:30",
+                "end_time" => "06:20",
+                "sleep_quality" => 9,
+                "user_id" => 1,
+                "created_at" => $currentTimestamp,
+                "updated_at" => $currentTimestamp,
+            ],
+            [
+                "start_date" => "2025/03/22",
+                "end_date" => "2025/03/23",
+                "start_time" => "22:00",
+                "end_time" => "06:50",
+                "sleep_quality" => 8,
+                "user_id" => 1,
+                "created_at" => $currentTimestamp,
+                "updated_at" => $currentTimestamp,
+            ],
+            [
+                "start_date" => "2025/03/23",
+                "end_date" => "2025/03/24",
+                "start_time" => "23:30",
+                "end_time" => "07:10",
+                "sleep_quality" => 6,
+                "user_id" => 1,
+                "created_at" => $currentTimestamp,
+                "updated_at" => $currentTimestamp,
+            ],
+            [
+                "start_date" => "2025/03/24",
+                "end_date" => "2025/03/25",
+                "start_time" => "00:15",
+                "end_time" => "08:20",
+                "sleep_quality" => 5,
+                "user_id" => 1,
+                "created_at" => $currentTimestamp,
+                "updated_at" => $currentTimestamp,
+            ],
+            [
+                "start_date" => "2025/03/25",
+                "end_date" => "2025/03/26",
+                "start_time" => "21:50",
+                "end_time" => "06:30",
+                "sleep_quality" => 8,
+                "user_id" => 1,
+                "created_at" => $currentTimestamp,
+                "updated_at" => $currentTimestamp,
+            ],
+            [
+                "start_date" => "2025/03/26",
+                "end_date" => "2025/03/27",
+                "start_time" => "22:20",
+                "end_time" => "07:40",
+                "sleep_quality" => 9,
+                "user_id" => 1,
+                "created_at" => $currentTimestamp,
+                "updated_at" => $currentTimestamp,
+            ],
+            [
+                "start_date" => "2025/03/27",
+                "end_date" => "2025/03/28",
+                "start_time" => "23:10",
+                "end_time" => "06:00",
+                "sleep_quality" => 6,
+                "user_id" => 1,
+                "created_at" => $currentTimestamp,
+                "updated_at" => $currentTimestamp,
+            ],
+            [
+                "start_date" => "2025/03/28",
+                "end_date" => "2025/03/29",
+                "start_time" => "00:00",
+                "end_time" => "07:30",
+                "sleep_quality" => 5,
+                "user_id" => 1,
+                "created_at" => $currentTimestamp,
+                "updated_at" => $currentTimestamp,
+            ],
+            [
+                "start_date" => "2025/03/29",
+                "end_date" => "2025/03/30",
+                "start_time" => "22:45",
+                "end_time" => "06:45",
+                "sleep_quality" => 8,
+                "user_id" => 1,
+                "created_at" => $currentTimestamp,
+                "updated_at" => $currentTimestamp,
+            ],
+            [
+                "start_date" => "2025/03/30",
+                "end_date" => "2025/03/31",
+                "start_time" => "23:00",
+                "end_time" => "07:20",
+                "sleep_quality" => 7,
+                "user_id" => 1,
+                "created_at" => $currentTimestamp,
+                "updated_at" => $currentTimestamp,
+            ],
+            [
+                "start_date" => "2025/03/31",
+                "end_date" => "2025/04/01",
+                "start_time" => "22:30",
+                "end_time" => "06:10",
+                "sleep_quality" => 6,
+                "user_id" => 1,
+                "created_at" => $currentTimestamp,
+                "updated_at" => $currentTimestamp,
+            ],
+            [
+                "start_date" => "2025/04/01",
+                "end_date" => "2025/04/02",
+                "start_time" => "21:40",
+                "end_time" => "05:50",
+                "sleep_quality" => 7,
+                "user_id" => 1,
+                "created_at" => $currentTimestamp,
+                "updated_at" => $currentTimestamp,
+            ],
+            [
+                "start_date" => "2025/04/02",
+                "end_date" => "2025/04/03",
+                "start_time" => "00:45",
+                "end_time" => "08:10",
+                "sleep_quality" => 4,
+                "user_id" => 1,
+                "created_at" => $currentTimestamp,
+                "updated_at" => $currentTimestamp,
+            ],
+            [
+                "start_date" => "2025/04/03",
+                "end_date" => "2025/04/04",
+                "start_time" => "22:55",
+                "end_time" => "06:15",
+                "sleep_quality" => 7,
+                "user_id" => 1,
+                "created_at" => $currentTimestamp,
+                "updated_at" => $currentTimestamp,
             ],
         ];
  
         // insert into db
-        DB::table("sleep_advice")->insert($sleepLog);
+        DB::table("sleep_log")->insert($sleepLog);
     }
 }
