@@ -46,7 +46,7 @@ class User extends Authenticatable
         ];
     }
 
-    public function user() {
+    public function sleepLogs() {
         return $this->hasMany(SleepLog::class);
     }
 }

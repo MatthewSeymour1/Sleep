@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class SleepLog extends Model
 {
+    protected $table = 'sleep_log';
     protected $fillable = [
         "start_date",
         "end_date",

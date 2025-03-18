@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SleepLogController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -15,6 +16,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('/sleep-log/create', [SleepLogController::class, 'create'])->name('sleep-log.create');
+    Route::post('/sleep-log', [SleepLogController::class, 'store'])->name('sleep-log.store');
 });
 
 require __DIR__.'/auth.php';

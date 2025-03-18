@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('advice_title');
             $table->text('description');
-            $table->enum('advice_type', ['Sleep Hygiene', 'Exercise', 'Diet', 'Environment', 'Mental Health']);
+            $table->enum('advice_type', ['Sleep Hygiene', 'Exercise', 'Diet', 'Environment', 'Mental Health', 'Routine', 'Technology', 'Lifestyle']);
             $table->timestamps();
         });
     }
