@@ -12,7 +12,9 @@ class SleepLogController extends Controller
      */
     public function index()
     {
-        //
+        $sleepLogs = auth()->user()->sleepLogs()->orderBy('start_date', 'desc')->orderBy('start_time', 'desc')->get();
+
+        return view('sleep-log.index', compact('sleepLogs'));
     }
 
     /**
@@ -64,7 +66,7 @@ class SleepLogController extends Controller
      */
     public function edit(SleepLog $sleepLog)
     {
-        //
+        return view('sleep-log.edit', compact('sleepLog'));
     }
 
     /**
@@ -72,7 +74,22 @@ class SleepLogController extends Controller
      */
     public function update(Request $request, SleepLog $sleepLog)
     {
-        //
+        $request->validate([
+            'start_date' => 'required|date',
+            'end_date' => 'required|date|after_or_equal:start_date',
+            'start_time' => 'required|date_format:H:i',
+            'end_time' => ['required', 'date_format:H:i', function ($attribute, $value, $fail) use ($request) {
+                if (strtotime($value) <= strtotime($request->start_time) && $request->start_date === $request->end_date) {
+                    $fail('End time must be after start time on the same date.');
+                }
+            }],
+            'sleep_quality' => 'required|integer|between:0,10',
+        ]);
+
+        $sleepLog->update($request->all());
+
+        return redirect()->route('sleep-log.index')->with('success', 'Sleep log updated successfully!');
+
     }
 
     /**
@@ -80,6 +97,7 @@ class SleepLogController extends Controller
      */
     public function destroy(SleepLog $sleepLog)
     {
-        //
+        $sleepLog->delete();
+        return redirect()->route('sleep-log.index')->with('success', 'Sleep log deleted successfully!');
     }
 }
