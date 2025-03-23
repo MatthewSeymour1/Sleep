@@ -34,9 +34,23 @@ class SleepAdviceController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(SleepAdvice $sleepAdvice)
+    public function show(SleepAdvice $sleepAdvice, Request $request)
     {
-        //
+        if ($request->has('random') && $request->random) {
+            $advice = SleepAdvice::inRandomOrder()->first();
+
+            session(['advice_of_the_day' => $advice->id]);
+        } else {
+            $advice = session('advice_of_the_day');
+            if (!$advice) {
+                $advice = SleepAdvice::inRandomOrder()->first();
+                session(['advice_of_the_day' => $advice->id]);
+            } else {
+                $advice = SleepAdvice::find($advice);
+            }
+        }
+        
+        return view('advice.show', compact('advice'));
     }
 
     /**

@@ -16,17 +16,19 @@
                 </div>
             @endif
 
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <div id="noLogsMessage" style="display: none" class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
+                    <h3 class="font-semibold text-lg mb-4">Your Sleep Logs</h3>
+                    <p class="text-gray-600">You haven't logged any sleep yet <a href="http://127.0.0.1:8000/sleep-log/create" class="text-blue-500">Add one?</a></p>
                 </div>
             </div>
-
             <div>
                 <canvas id="myChart"></canvas>
             </div>
-            <!-- This holds the sleepData in an attribute, allowing it to be "recieved" by the graphes.js file. -->
-            <div id="sleepLogs" data-sleep-logs='@json($sleepLogs)' style="display:none;"></div>
+            <script>
+                // Pass PHP data to JavaScript
+                window.sleepLogs = @json($sleepLogs);
+            </script>
         </div>
 
 

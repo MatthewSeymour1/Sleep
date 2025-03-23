@@ -13,7 +13,7 @@ class SleepLogSeeder extends Seeder
     public function run(): void
     {
         $currentTimestamp = now();
- 
+
         $sleepLog = [
             [
                 "start_date" => "2025/03/15",
@@ -46,7 +46,7 @@ class SleepLogSeeder extends Seeder
                 "updated_at" => $currentTimestamp,
             ],
             [
-                "start_date" => "2025/03/18",
+                "start_date" => "2025/03/19",
                 "end_date" => "2025/03/19",
                 "start_time" => "00:30",
                 "end_time" => "08:00",
@@ -106,7 +106,7 @@ class SleepLogSeeder extends Seeder
                 "updated_at" => $currentTimestamp,
             ],
             [
-                "start_date" => "2025/03/24",
+                "start_date" => "2025/03/25",
                 "end_date" => "2025/03/25",
                 "start_time" => "00:15",
                 "end_time" => "08:20",
@@ -146,7 +146,7 @@ class SleepLogSeeder extends Seeder
                 "updated_at" => $currentTimestamp,
             ],
             [
-                "start_date" => "2025/03/28",
+                "start_date" => "2025/03/29",
                 "end_date" => "2025/03/29",
                 "start_time" => "00:00",
                 "end_time" => "07:30",
@@ -196,7 +196,7 @@ class SleepLogSeeder extends Seeder
                 "updated_at" => $currentTimestamp,
             ],
             [
-                "start_date" => "2025/04/02",
+                "start_date" => "2025/04/03",
                 "end_date" => "2025/04/03",
                 "start_time" => "00:45",
                 "end_time" => "08:10",
@@ -216,7 +216,7 @@ class SleepLogSeeder extends Seeder
                 "updated_at" => $currentTimestamp,
             ],
         ];
- 
+
         // insert into db
         DB::table("sleep_log")->insert($sleepLog);
     }

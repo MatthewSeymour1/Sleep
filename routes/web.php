@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SleepLogController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\SleepAdviceController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -26,6 +27,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/sleep-log/{sleepLog}', [SleepLogController::class, 'update'])->name('sleep-log.update');
 
     Route::delete('/sleep-log/{sleepLog}', [SleepLogController::class, 'destroy'])->name('sleep-log.destroy');
+
+    Route::get('/advice-of-the-day', [SleepAdviceController::class, 'show'])->name('advice.show');
 });
 
 require __DIR__.'/auth.php';
