@@ -21,6 +21,16 @@
                     {{ __("You're logged in!") }}
                 </div>
             </div>
+
+            <div>
+                <canvas id="myChart"></canvas>
+            </div>
+            <!-- This holds the sleepData in an attribute, allowing it to be "recieved" by the graphes.js file. -->
+            <div id="sleepLogs" data-sleep-logs='@json($sleepLogs)' style="display:none;"></div>
         </div>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="{{ asset('graphes.js') }}"></script>
     </div>
 </x-app-layout>
