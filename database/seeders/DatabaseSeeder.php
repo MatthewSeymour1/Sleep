@@ -20,6 +20,11 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@test.com',
         ]);
 
+        User::factory()->create([
+            'name' => 'Test User',
+            'email' => 'test2@test2.com',
+        ]);
+
         $this->call([
             SleepAdviceSeeder::class,
             SleepLogSeeder::class,
