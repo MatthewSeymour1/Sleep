@@ -22,8 +22,21 @@
                     <p class="text-gray-600">You haven't logged any sleep yet <a href="http://127.0.0.1:8000/sleep-log/create" class="text-blue-500">Add one?</a></p>
                 </div>
             </div>
-            <div>
-                <canvas id="myChart"></canvas>
+
+            <!-- Type dropdown -->
+            <select id="myTypeDropdown">
+                <option value="amountOfSleep">Amount of Sleep</option>
+                <option value="qualityOfSleep">Quality of Sleep</option>
+            </select>
+            <!-- Time dropdown -->
+            <select id="myTimeDropdown">
+                <option value="perDay">perDay</option>
+                <option value="perWeek">perWeek</option>
+                <option value="perMonth">perMonth</option>
+            </select>
+            
+            <div id="chartContainer" class="w-full h-[650px]">
+                <canvas id="myChart" class="w-full h-full"></canvas>
             </div>
             <script>
                 // Pass PHP data to JavaScript
