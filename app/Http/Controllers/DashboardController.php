@@ -15,9 +15,14 @@ class DashboardController extends Controller
             $end = Carbon::parse("{$log->end_date} {$log->end_time}");
 
             $log->duration = abs($end->diffInMinutes($start) / 60);
+            $log->start_week = $start->startOfWeek()->format('Y-m-d') . ' to ' . $start->endOfWeek()->format('Y-m-d');
+            $log->start_month = $start->startOfMonth()->format('Y-m-d') . ' to ' . $start->endOfMonth()->format('Y-m-d');
+
+
             return $log;
         });
 
+        
         return view('dashboard', compact('sleepLogs'));
     }
 }

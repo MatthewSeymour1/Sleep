@@ -34,6 +34,10 @@
                 <option value="perWeek">perWeek</option>
                 <option value="perMonth">perMonth</option>
             </select>
+            <select id="myGraphType">
+                <option value="line">Line</option>
+                <option value="bar">Bar</option>
+            </select>
             
             <div id="chartContainer" class="w-full h-[650px]">
                 <canvas id="myChart" class="w-full h-full"></canvas>
