@@ -34,7 +34,7 @@ class SleepAdviceController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(SleepAdvice $sleepAdvice, Request $request)
+    public function show(Request $request)
     {
         if ($request->has('random') && $request->random) {
             $advice = SleepAdvice::inRandomOrder()->first();

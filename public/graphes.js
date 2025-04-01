@@ -68,43 +68,6 @@ renderAnyGraph();
 
 
 function renderAnyGraph() {
-    // if (typeSelectedOption == "amountOfSleep" && timeSelectedOption == "perDay" && graphTypeSelectedOption == "line") {
-    //     renderGraph(duration, sleepDate, "Hours Slept", "line");
-    // }
-    // else if (typeSelectedOption == "qualityOfSleep" && timeSelectedOption == "perDay" && graphTypeSelectedOption == "line") {
-    //     renderGraph(quality, sleepDate, "Quality of Sleep", "line");
-    // }
-    // else if (typeSelectedOption == "amountOfSleep" && timeSelectedOption == "perDay" && graphTypeSelectedOption == "bar") {
-    //     renderGraph(duration, sleepDate, "Hours Slept", "bar");
-    // }
-    // else if (typeSelectedOption == "qualityOfSleep" && timeSelectedOption == "perDay" && graphTypeSelectedOption == "bar") {
-    //     renderGraph(quality, sleepDate, "Quality of Sleep", "bar");
-    // }
-    // else if (typeSelectedOption == "amountOfSleep" && timeSelectedOption == "perWeek" && graphTypeSelectedOption == "line") {
-    //     renderGraph(durationWeek, uniqueSleepWeek, "Hours Slept", "line");
-    // }
-    // else if (typeSelectedOption == "amountOfSleep" && timeSelectedOption == "perWeek" && graphTypeSelectedOption == "bar") {
-    //     renderGraph(durationWeek, uniqueSleepWeek, "Hours Slept", "bar");
-    // }
-    // else if (typeSelectedOption == "qualityOfSleep" && timeSelectedOption == "perWeek" && graphTypeSelectedOption == "line") {
-    //     renderGraph(qualityWeek, uniqueSleepWeek, "Quality of Sleep", "line");
-    // }
-    // else if (typeSelectedOption == "qualityOfSleep" && timeSelectedOption == "perWeek" && graphTypeSelectedOption == "bar") {
-    //     renderGraph(qualityWeek, uniqueSleepWeek, "Quality of Sleep", "bar");
-    // }
-    // else if (typeSelectedOption == "amountOfSleep" && timeSelectedOption == "perMonth" && graphTypeSelectedOption == "line") {
-    //     renderGraph(durationMonth, uniqueSleepMonth, "Hours Slept", "line");
-    // }
-    // else if (typeSelectedOption == "amountOfSleep" && timeSelectedOption == "perMonth" && graphTypeSelectedOption == "bar") {
-    //     renderGraph(durationMonth, uniqueSleepMonth, "Hours Slept", "bar");
-    // }
-    // else if (typeSelectedOption == "qualityOfSleep" && timeSelectedOption == "perMonth" && graphTypeSelectedOption == "line") {
-    //     renderGraph(qualityMonth, uniqueSleepMonth, "Quality of Sleep", "line");
-    // }
-    // else if (typeSelectedOption == "qualityOfSleep" && timeSelectedOption == "perMonth" && graphTypeSelectedOption == "bar") {
-    //     renderGraph(qualityMonth, uniqueSleepMonth, "Quality of Sleep", "bar");
-    // }
-
     let yAxis, xAxis, titleLabel, typeOfGraph;
     typeOfGraph = graphTypeSelectedOption;
 
