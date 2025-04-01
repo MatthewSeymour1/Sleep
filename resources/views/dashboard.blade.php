@@ -23,24 +23,26 @@
                 </div>
             </div>
 
-            <!-- Type dropdown -->
-            <select id="myTypeDropdown">
-                <option value="amountOfSleep">Amount of Sleep</option>
-                <option value="qualityOfSleep">Quality of Sleep</option>
-            </select>
-            <!-- Time dropdown -->
-            <select id="myTimeDropdown">
-                <option value="perDay">perDay</option>
-                <option value="perWeek">perWeek</option>
-                <option value="perMonth">perMonth</option>
-            </select>
-            <select id="myGraphType">
-                <option value="line">Line</option>
-                <option value="bar">Bar</option>
-            </select>
-            
-            <div id="chartContainer" class="w-full h-[650px]">
-                <canvas id="myChart" class="w-full h-full"></canvas>
+            <div id="logsDropdown">
+                <!-- Type dropdown -->
+                <select id="myTypeDropdown">
+                    <option value="amountOfSleep">Amount of Sleep</option>
+                    <option value="qualityOfSleep">Quality of Sleep</option>
+                </select>
+                <!-- Time dropdown -->
+                <select id="myTimeDropdown">
+                    <option value="perDay">perDay</option>
+                    <option value="perWeek">perWeek</option>
+                    <option value="perMonth">perMonth</option>
+                </select>
+                <select id="myGraphType">
+                    <option value="line">Line</option>
+                    <option value="bar">Bar</option>
+                </select>
+                
+                <div id="chartContainer" class="w-full h-[650px]">
+                    <canvas id="myChart" class="w-full h-full"></canvas>
+                </div>
             </div>
             <script>
                 // Pass PHP data to JavaScript

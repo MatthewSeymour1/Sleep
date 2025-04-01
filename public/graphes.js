@@ -44,6 +44,7 @@ let qualityMonth = uniqueSleepMonth.map(month => {
 
 
 const noLogsMessage = document.getElementById('noLogsMessage');
+const logsDropdown = document.getElementById('logsDropdown');
 
 
 typeDropdown.addEventListener("change", function() {
@@ -174,10 +175,11 @@ function renderGraph(yAxis, xAxis, titleLabel, typeOfGraph) {
             }
         }));
     
+        logsDropdown.style.display = 'block';
         noLogsMessage.style.display = 'none';
     } else {
         console.log("No Logs");
         noLogsMessage.style.display = 'block';
+        logsDropdown.style.display = 'none';
     }
 }
-
