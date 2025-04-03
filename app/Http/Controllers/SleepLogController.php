@@ -27,11 +27,14 @@ class SleepLogController extends Controller
 
     //The validation of end_time has custom validation that ensures that the end_time is not less than the start time IF the start_date equals the end_date.
     //In other words it ensures that you aren't saying you woke up before you went to sleep.
+    //
+    //The start_date validation ensures that you can't log sleep over a week ago and you can't log sleep that hasn't happened yet.
+    //The end_date validation also ensures that you can't log future sleep.
     public function store(Request $request)
     {
         $request->validate([
-            'start_date' => 'required|date',
-            'end_date' => 'required|date|after_or_equal:start_date',
+            'start_date' => ['required', 'date', 'after_or_equal:' . now()->subDays(7)->toDateString()],
+            'end_date' => ['required', 'date', 'after_or_equal:start_date', 'before_or_equal:' . now()->toDateString()],
             'start_time' => 'required|date_format:H:i',
             'end_time' => ['required', 'date_format:H:i', function ($attribute, $value, $fail) use ($request) {
                 if (strtotime($value) <= strtotime($request->start_time) && $request->start_date === $request->end_date) {
@@ -39,6 +42,10 @@ class SleepLogController extends Controller
                 }
             }],
             'sleep_quality' => 'required|integer|between:0,10',
+        ], [
+            'start_date.after_or_equal' => 'The start date cannot be more than 7 days ago.',
+            'end_date.before_or_equal' => 'The end date cannot be in the future.',
+            'end_date.after_or_equal' => 'The end date must be after or the same as the start date.'
         ]);
 
         auth()->user()->sleepLogs()->create([
@@ -75,8 +82,8 @@ class SleepLogController extends Controller
     public function update(Request $request, SleepLog $sleepLog)
     {
         $request->validate([
-            'start_date' => 'required|date',
-            'end_date' => 'required|date|after_or_equal:start_date',
+            'start_date' => ['required', 'date', 'after_or_equal:' . now()->subDays(7)->toDateString()],
+            'end_date' => ['required', 'date', 'after_or_equal:start_date', 'before_or_equal:' . now()->toDateString()],
             'start_time' => 'required|date_format:H:i',
             'end_time' => ['required', 'date_format:H:i', function ($attribute, $value, $fail) use ($request) {
                 if (strtotime($value) <= strtotime($request->start_time) && $request->start_date === $request->end_date) {
@@ -84,6 +91,10 @@ class SleepLogController extends Controller
                 }
             }],
             'sleep_quality' => 'required|integer|between:0,10',
+        ], [
+            'start_date.after_or_equal' => 'The start date cannot be more than 7 days ago.',
+            'end_date.before_or_equal' => 'The end date cannot be in the future.',
+            'end_date.after_or_equal' => 'The end date must be after or the same as the start date.'
         ]);
 
         $sleepLog->update($request->all());

@@ -9,7 +9,7 @@ use Carbon\Carbon;
 class DashboardController extends Controller
 {
     public function index() {
-        $sleepLogs = SleepLog::where('user_id', auth()->id())->get()->map(function ($log) {
+        $sleepLogs = SleepLog::where('user_id', auth()->id())->orderBy('start_date', 'asc')->get()->map(function ($log) {
             //Combining start_date and start_time into one date-and-time value. Same with end_date and end_time. Doing this to get the duration (in hours) slept.
             $start = Carbon::parse("{$log->start_date} {$log->start_time}");
             $end = Carbon::parse("{$log->end_date} {$log->end_time}");

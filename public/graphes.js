@@ -122,8 +122,8 @@ function renderGraph(yAxis, xAxis, titleLabel, typeOfGraph) {
                 datasets: [{
                     label: titleLabel,
                     data: yAxis, // Y-axis (sleep duration)
-                    borderColor: 'blue',
-                    backgroundColor: 'rgba(0, 0, 255, 0.2)',
+                    borderColor: 'rgb(59, 130, 246)',
+                    backgroundColor: 'rgba(59, 130, 246, 0.2)',
                     borderWidth: 2,
                     fill: true
                 }]
