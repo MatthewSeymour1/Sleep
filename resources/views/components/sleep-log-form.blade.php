@@ -1,4 +1,4 @@
-@props(['action', 'method', 'sleepLog' => null])
+@props(['action', 'method', 'sleepLog' => null, 'start_date_default' => null, 'end_date_default' => null])
 
 <form action="{{ $action }}" method="POST">
     @csrf
@@ -12,7 +12,7 @@
             type="date"
             name="start_date"
             id="start_date"
-            value="{{ old('start_date', $sleepLog->start_date ?? '') }}"
+            value="{{ old('start_date', $sleepLog->start_date ?? $start_date_default) }}"
             required
             class="mt-1 block w-full border-gray-600 rounded-md shadow-sm bg-gray-800 text-white" />
         @error('start_date')
@@ -26,7 +26,7 @@
             type="date"
             name="end_date"
             id="end_date"
-            value="{{ old('end_date', $sleepLog->end_date ?? '') }}"
+            value="{{ old('end_date', $sleepLog->end_date ?? $end_date_default) }}"
             required
             class="mt-1 block w-full border-gray-600 rounded-md shadow-sm bg-gray-800 text-white" />
         @error('end_date')

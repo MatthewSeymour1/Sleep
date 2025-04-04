@@ -51,6 +51,7 @@
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom"></script>
         <script src="{{ asset('graphes.js') }}"></script>
     </div>
 </x-app-layout>

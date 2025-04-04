@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\SleepLog;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class SleepLogController extends Controller
 {
@@ -22,7 +23,9 @@ class SleepLogController extends Controller
      */
     public function create()
     {
-        return view('sleep-log.create');
+        $start_date_default = Carbon::yesterday()->toDateString();
+        $end_date_default = Carbon::now()->toDateString();
+        return view('sleep-log.create', compact('start_date_default', 'end_date_default'));
     }
 
     //The validation of end_time has custom validation that ensures that the end_time is not less than the start time IF the start_date equals the end_date.
@@ -39,6 +42,12 @@ class SleepLogController extends Controller
             'end_time' => ['required', 'date_format:H:i', function ($attribute, $value, $fail) use ($request) {
                 if (strtotime($value) <= strtotime($request->start_time) && $request->start_date === $request->end_date) {
                     $fail('End time must be after start time on the same date.');
+                }
+                if ($request->end_date === now()->toDateString()) {
+                    $currentTime = now()->format('H:i'); // Get the current time in H:i format
+                    if (strtotime($value) > strtotime($currentTime)) {
+                        $fail('End time cannot be in the future.');
+                    }
                 }
             }],
             'sleep_quality' => 'required|integer|between:0,10',
@@ -88,6 +97,12 @@ class SleepLogController extends Controller
             'end_time' => ['required', 'date_format:H:i', function ($attribute, $value, $fail) use ($request) {
                 if (strtotime($value) <= strtotime($request->start_time) && $request->start_date === $request->end_date) {
                     $fail('End time must be after start time on the same date.');
+                }
+                if ($request->end_date === now()->toDateString()) {
+                    $currentTime = now()->format('H:i'); // Get the current time in H:i format
+                    if (strtotime($value) > strtotime($currentTime)) {
+                        $fail('End time cannot be in the future.');
+                    }
                 }
             }],
             'sleep_quality' => 'required|integer|between:0,10',

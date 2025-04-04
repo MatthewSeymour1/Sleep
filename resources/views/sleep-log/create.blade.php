@@ -12,6 +12,8 @@
                     <x-sleep-log-form
                         :action="route('sleep-log.store')"
                         :method="'POST'"
+                        :start_date_default="$start_date_default"
+                        :end_date_default="$end_date_default"
                     />
                 </div>
             </div>
